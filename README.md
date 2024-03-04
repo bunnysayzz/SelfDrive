@@ -42,4 +42,4 @@ We welcome contributions from the community. To contribute, follow these steps:
 ## License
 This project is licensed under the MIT License.
 
-![SelfRide Logo](path/to/scr.png)
+![SelfRide Logo](scr.png)
