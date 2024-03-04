@@ -1,2 +1,0 @@
-# SelfDrive
-car rental system
