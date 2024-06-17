@@ -1,6 +1,7 @@
 /*--------------*\  #style.css  \*---------------*/
 
 
+
 /*-----------*\ #CUSTOM PROPERTY  \*--------*/
 
 :root {
@@ -187,11 +188,14 @@ a {
     font-size: var(--fs-6);
     font-weight: var(--fw-600);
     overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn ion-icon {
-    font-size: 22px;
-    --ionicon-stroke-width: 40px;
+.btn:hover,
+.btn:focus {
+    background-color: #007BFF; /* Standard blue */
+    color: #FFFFFF; /* White text */
+    box-shadow: var(--shadow-2);
 }
 
 .btn::before {
@@ -201,15 +205,23 @@ a {
     background: linear-gradient(to right, hsla(0, 0%, 100%, 0.4), transparent);
     opacity: 0;
     pointer-events: none;
-    transition: var(--transition);
+    transition: opacity 0.3s ease;
 }
 
-.btn:is(:hover, :focus) {
-    box-shadow: var(--shadow-2);
-}
-
-.btn:is(:hover, :focus)::before {
+.btn:hover::before,
+.btn:focus::before {
     opacity: 1;
+}
+
+.btn ion-icon {
+    font-size: 22px;
+    --ionicon-stroke-width: 40px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover ion-icon,
+.btn:focus ion-icon {
+    transform: scale(1.1);
 }
 
 .section {
@@ -329,7 +341,7 @@ a {
 }
 
 .navbar {
-    background: white;
+    background: #F8F9FA; /* Light grey background */
     position: fixed;
     top: 70px;
     bottom: 0;
@@ -338,15 +350,14 @@ a {
     width: 100%;
     padding: 20px 25px;
     border: 1px solid var(--white);
-    box-shadow: var(--shadow-1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
     visibility: hidden;
-    transition: 0.25s cubic-bezier(0.51, 0.03, 0.64, 0.28);
+    transition: transform 0.5s ease-in-out;
 }
 
 .navbar.active {
     visibility: visible;
     transform: translateX(-100%);
-    transition: 0.5s cubic-bezier(0.33, 0.85, 0.56, 1.02);
 }
 
 .navbar-link {
@@ -355,10 +366,13 @@ a {
     font-size: var(--fs-6);
     padding-block: 5px;
     margin-bottom: 15px;
+    transition: color 0.3s ease;
 }
 
-.navbar-link:is(:hover, :focus) {
+.navbar-link:hover,
+.navbar-link:focus {
     color: var(--eerie-black);
+    text-decoration: underline;
 }
 
 .overlay {
